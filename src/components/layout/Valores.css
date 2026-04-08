@@ -1,0 +1,44 @@
+#valores {
+  margin: 120px 0;
+  .tarjeta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 0 50px;
+    align-items: stretch;
+    .valor {
+      max-width: 326px;
+      background-color: #fdf8e1;
+      padding: 10px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      h4 {
+        font-family: "Merriweather", sans-serif;
+        font-weight: bold;
+        padding-bottom: 10px;
+      }
+      p {
+        flex: 1;
+        margin: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    & {
+      .tarjeta {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        min-width: 300px;
+        padding: 0;
+        .valor {
+          max-width: 326px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

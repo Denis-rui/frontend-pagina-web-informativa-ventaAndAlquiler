@@ -1,0 +1,66 @@
+header {
+  align-items: center;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: auto 1fr auto;
+  padding: 40px 0;
+
+  img {
+    width: 150px;
+    border-radius: 10px;
+    &.dark {
+      background-image: url(../../../public/assets/img/modo-dark.jpeg);
+    }
+  }
+
+  nav ul {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+    a {
+      font-weight: 300;
+      font-size: 16px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    & {
+      padding: 20px;
+      img {
+        grid-column: 1/-1;
+        margin: auto;
+        width: 120px;
+      }
+
+      nav {
+        grid-column: span 2;
+        justify-content: flex-start;
+        gap: 15px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    & {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      padding-bottom: 20px;
+      gap: 10px;
+      img {
+        width: 80px;
+        height: auto;
+      }
+
+      nav ul {
+        gap: 20px;
+        a {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

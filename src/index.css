@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --fondo: #f2f2f2;
+  --titulos: #926c15;
+  --parrafos: #343a40;
+  --boton1: #2f7d6d;
+  --boton2: #cca43b;
+  --texto-Pie-de-pagina: #737373;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background-color: var(--fondo);
+  color: var(--parrafos);
+  &.dark {
+    background-color: #2d2d2d;
+    color: var(--fondo);
+  }
+}
+
+a {
+  text-decoration: none;
+  color: var(--parrafos);
+  font-weight: 400;
+  &:hover {
+    text-decoration: underline;
+  }
+}

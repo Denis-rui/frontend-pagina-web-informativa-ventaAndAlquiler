@@ -1,0 +1,27 @@
+.dark-model-label {
+  align-items: center;
+  background-color: #dfdfdf;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  .sun,
+  .moon {
+    padding: 7px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+  }
+
+  .activo {
+    background-color: #2d2d2d;
+    color: var(--fondo);
+  }
+}
