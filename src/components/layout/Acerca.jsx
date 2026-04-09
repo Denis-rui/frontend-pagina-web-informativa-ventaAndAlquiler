@@ -1,6 +1,6 @@
 import "./Acerca.css";
 
-const Acerca = () => {
+const Acerca = ({ darkMode }) => {
   return (
     <>
       <section id="acerca-de-nosotros">
@@ -13,14 +13,15 @@ const Acerca = () => {
               className="principal"
             />
             <img
-              src="./assets/img/EL PRECIOOSO IMAGEN PARA FONDO BLANCO.jpeg"
+              src="./assets/img/el-precioso-modo-light.jpeg"
               alt="Logo el precioso"
               className="secundario"
             />
           </div>
           <div className="col-der">
-            <p>
-              Somos una tienda especializada en la venta y alquiler de prendas
+            <h5 className="titulo-somos">Nosotros Somos</h5>
+            <p className={darkMode ? "dark" : ""}>
+              una tienda especializada en la venta y alquiler de prendas
               elegantes para ocasiones especiales. Nos enfocamos en ofrecer una
               selección cuidada de vestidos, combinando estilo, calidad y
               accesibilidad para cada cliente. Creemos que cada evento merece

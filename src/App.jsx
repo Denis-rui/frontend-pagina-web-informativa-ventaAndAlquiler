@@ -9,17 +9,19 @@ import Footer from "./components/layout/Footer";
 import { useState } from "react";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const estadoInicial =
+    localStorage.getItem("darkMode") === "true" ? true : false;
+  const [darkMode, setDarkMode] = useState(estadoInicial);
 
   return (
     <>
       <div className="contenedor">
         <Header darkMode={darkMode} setDarkMode={setDarkMode} />
         <Hero />
-        <Valores />
-        <PrendasDestacadas />
-        <Acerca />
-        <Contactanos />
+        <Valores darkMode={darkMode} />
+        <PrendasDestacadas darkMode={darkMode} />
+        <Acerca darkMode={darkMode} />
+        <Contactanos darkMode={darkMode} />
         <Footer />
       </div>
     </>

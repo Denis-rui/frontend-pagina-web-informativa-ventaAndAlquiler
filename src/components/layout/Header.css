@@ -1,16 +1,12 @@
 header {
   align-items: center;
   display: grid;
-  gap: 20px;
   grid-template-columns: auto 1fr auto;
   padding: 40px 0;
 
   img {
-    width: 150px;
+    height: 65px;
     border-radius: 10px;
-    &.dark {
-      background-image: url(../../../public/assets/img/modo-dark.jpeg);
-    }
   }
 
   nav ul {
@@ -22,6 +18,9 @@ header {
     a {
       font-weight: 300;
       font-size: 16px;
+      &.dark {
+        color: #e9ecef;
+      }
     }
   }
 
@@ -38,6 +37,9 @@ header {
         grid-column: span 2;
         justify-content: flex-start;
         gap: 15px;
+        ul li a.dark {
+          color: #f2f2f2;
+        }
       }
     }
   }

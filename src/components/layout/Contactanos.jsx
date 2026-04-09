@@ -1,13 +1,15 @@
 import "./Contactanos.css";
 
-const Contactanos = () => {
+const Contactanos = ({ darkMode }) => {
   return (
     <>
       <section id="contactanos">
         <h3>Contáctanos</h3>
         <form action="" className="formulario-contactanos" autoComplete="off">
           <div className="formulario">
-            <label for="nombre">Nombre:</label>
+            <label for="nombre " className={darkMode ? "dark" : ""}>
+              Nombre:
+            </label>
             <input
               className="rectangulo"
               type="text"
@@ -16,7 +18,9 @@ const Contactanos = () => {
             />
           </div>
           <div className="formulario">
-            <label for="correo">Correo:</label>
+            <label for="correo" className={darkMode ? "dark" : ""}>
+              Correo:
+            </label>
             <input
               className="rectangulo"
               type="email"
@@ -25,7 +29,9 @@ const Contactanos = () => {
             />
           </div>
           <div className="formulario">
-            <label for="numero">Número:</label>
+            <label for="numero" className={darkMode ? "dark" : ""}>
+              Número:
+            </label>
             <input
               className="rectangulo"
               type="number"
@@ -34,7 +40,9 @@ const Contactanos = () => {
             />
           </div>
           <div className="formulario">
-            <label for="motivo">Motivo</label>
+            <label for="motivo" className={darkMode ? "dark" : ""}>
+              Motivo
+            </label>
             <select className="rectangulo" name="motivo" id="motivo" required>
               <option value="" disabled hidden>
                 seleccione su motivo

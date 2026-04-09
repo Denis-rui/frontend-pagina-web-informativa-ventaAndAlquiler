@@ -15,6 +15,10 @@
         font-size: 15px;
         font-weight: bold;
         padding: 5px 0;
+
+        &.dark {
+          color: #d2d2d2;
+        }
       }
 
       .rectangulo {

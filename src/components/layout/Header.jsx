@@ -6,25 +6,35 @@ const Header = ({ darkMode, setDarkMode }) => {
     <>
       <header>
         <img
-          src="./assets/img/el-precioso-modo-light.jpeg"
+          src={
+            darkMode
+              ? "./assets/img/modo-dark.jpeg"
+              : "./assets/img/el-precioso-modo-light.jpeg"
+          }
           alt="Logo El Precioso"
         />
 
         <nav>
           <ul>
             <li>
-              <a href="#prendas-destacadas">Prendas</a>
+              <a className={darkMode ? "dark" : ""} href="#prendas-destacadas">
+                Prendas
+              </a>
             </li>
             <li>
-              <a href="#acerca-de-nosotros">Acerca de nosotros</a>
+              <a className={darkMode ? "dark" : ""} href="#acerca-de-nosotros">
+                Acerca de nosotros
+              </a>
             </li>
             <li>
-              <a href="#contactanos">Contáctanos</a>
+              <a className={darkMode ? "dark" : ""} href="#contactanos">
+                Contáctanos
+              </a>
             </li>
           </ul>
         </nav>
 
-        <DarkModeBoton />
+        <DarkModeBoton darkMode={darkMode} setDarkMode={setDarkMode} />
       </header>
     </>
   );

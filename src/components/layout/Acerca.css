@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    justify-items: center;
     gap: 40px;
     margin: 0 150px;
 
@@ -11,6 +12,7 @@
       margin: 0 auto;
       position: relative;
       width: 100%;
+      margin: auto 0;
 
       .principal {
         border-radius: 15px;
@@ -31,10 +33,19 @@
       flex-direction: column;
       gap: 20px;
 
+      .titulo-somos {
+        font-size: 19px;
+        color: var(--boton2);
+        line-height: 0;
+        margin-top: 10px;
+      }
       p {
         line-height: 25px;
         text-align: justify;
         margin: 0;
+        &.dark {
+          color: var(--fondo);
+        }
       }
 
       a {
@@ -56,6 +67,9 @@
       gap: 20px;
 
       .col-der {
+        .titulo-somos {
+          font-size: 18px;
+        }
         p {
           line-height: 1.5;
           font-size: 16px;
@@ -82,12 +96,19 @@
           width: 150px;
           position: absolute;
           bottom: -30px;
-          left: 35%;
+          left: 50%;
+          transform: translateX(-50%);
         }
       }
 
       .col-der {
         gap: 10px;
+        align-items: center;
+        text-align: center;
+        .titulo-somos {
+          font-size: 17px;
+          margin-top: 15px;
+        }
         p {
           text-align: center;
           font-size: 15px;
@@ -104,22 +125,19 @@
 
       .col-izq {
         .secundario {
-          width: 100px;
-          bottom: -15px;
-          left: 35%;
-        }
-        .secundario {
           border-radius: 10px;
           width: 150px;
-          position: absolute;
           bottom: -30px;
-          left: 35%;
+          position: absolute;
+          left: 50%;
         }
       }
 
       .col-der {
         gap: 15px;
-
+        .titulo-somos {
+          font-size: 16px;
+        }
         p {
           font-size: 14px;
           line-height: 1.3;

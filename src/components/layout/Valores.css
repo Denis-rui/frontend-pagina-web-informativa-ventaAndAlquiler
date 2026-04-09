@@ -7,13 +7,15 @@
     padding: 0 50px;
     align-items: stretch;
     .valor {
+      border-radius: 20px;
       max-width: 326px;
       background-color: #fdf8e1;
       padding: 10px;
       height: 100%;
       display: flex;
       flex-direction: column;
-
+      color: var(--parrafos);
+      text-align: center;
       h4 {
         font-family: "Merriweather", sans-serif;
         font-weight: bold;
@@ -22,6 +24,10 @@
       p {
         flex: 1;
         margin: 0;
+      }
+
+      &.dark {
+        background-color: var(--boton2);
       }
     }
   }
