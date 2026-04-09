@@ -22,6 +22,10 @@
       padding: 5px 20px;
       display: flex;
       flex: 0 1 auto;
+      &:hover {
+        transform: scale(1.05);
+        transition: transform 0.5s ease;
+      }
     }
   }
 
@@ -53,6 +57,9 @@
           height: 100%;
           object-fit: cover;
           transition: transform 0.5s ease;
+          &:hover {
+            transform: scale(1.05);
+          }
         }
       }
       .informacion-prenda {
@@ -73,6 +80,7 @@
           &:hover {
             color: var(--boton2);
             text-decoration: none;
+            transform: scale(1.05);
           }
           &.dark {
             color: var(--fondo);
@@ -98,8 +106,11 @@
       .boton-ir {
         padding: 0 15px 10px 15px;
         text-align: center;
-
+        &:hover {
+          transform: scale(1.05);
+        }
         .ir {
+          text-decoration: none;
           background-color: var(--boton2);
           border-radius: 50px;
           display: inline-flex;

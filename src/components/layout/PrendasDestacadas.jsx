@@ -1,10 +1,13 @@
 import "./PrendasDestacadas.css";
 import Datos from "../data/Datos";
+import Modal from "../Modal";
 import { useState } from "react";
 
 const PrendasDestacadas = ({ darkMode }) => {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("Todos");
   const [prendasFiltradas, setPrendasFiltradas] = useState(Datos);
+  const [modalAbierto, setModalAbierto] = useState(false);
+  const [prendaSeleccionada, setPrendaSeleccionada] = useState(Datos[0]);
 
   const filtrarPrendas = (e) => {
     const categoriaInput = e.target.value;
@@ -20,6 +23,22 @@ const PrendasDestacadas = ({ darkMode }) => {
       });
       setPrendasFiltradas(nuevasPrendas);
     }
+  };
+
+  const abrirModal = (e, id) => {
+    e.preventDefault();
+    setModalAbierto(true);
+
+    const prenda = Datos.find((prenda) => {
+      if (prenda.id === id) {
+        return true;
+      }
+    });
+    setPrendaSeleccionada(prenda);
+  };
+
+  const cerrarModal = () => {
+    setModalAbierto(false);
   };
 
   return (
@@ -91,13 +110,18 @@ const PrendasDestacadas = ({ darkMode }) => {
           {prendasFiltradas.map((prenda) => {
             return (
               <div className={"tarjeta " + (darkMode ? "dark" : "")}>
-                <a href="#" className="miniatura-prenda">
+                <a
+                  href="#"
+                  className="miniatura-prenda"
+                  onClick={(e) => abrirModal(e, prenda.id)}
+                >
                   <img src={prenda.thumb.url} alt={prenda.thumb.alt} />
                 </a>
                 <div className="informacion-prenda">
                   <a
                     href="#"
                     className={"nombre-prenda " + (darkMode ? "dark" : "")}
+                    onClick={(e) => abrirModal.apply(e, prenda.id)}
                   >
                     {prenda.info.nombre}
                   </a>
@@ -106,7 +130,11 @@ const PrendasDestacadas = ({ darkMode }) => {
                   </p>
                 </div>
                 <div className="boton-ir">
-                  <a href="#" className="ir">
+                  <a
+                    href="#"
+                    className="ir"
+                    onClick={(e) => abrirModal(e, prenda.id)}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -125,6 +153,10 @@ const PrendasDestacadas = ({ darkMode }) => {
           })}
         </div>
       </section>
+
+      {modalAbierto && (
+        <Modal cerrarModal={cerrarModal} prenda={prendaSeleccionada} />
+      )}
     </>
   );
 };
