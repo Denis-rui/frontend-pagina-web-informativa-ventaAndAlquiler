@@ -1,11 +1,74 @@
 import "./Contactanos.css";
+import { useState } from "react";
 
 const Contactanos = ({ darkMode }) => {
+  const [nombre, setNombre] = useState("");
+  const [correo, setCorreo] = useState("");
+  const [numero, setNumero] = useState("");
+  const [motivo, setMotivo] = useState("");
+  const [error, setError] = useState(false);
+
+  const regEx = {
+    nombre: /^[a-zA-Z\s]{2,}$/,
+    correo: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    numero: /^9\d{8}$/,
+  };
+  const asignarValorInput = (e, tipoInput) => {
+    if (tipoInput === "nombre") {
+      setNombre(e.target.value);
+    }
+    if (tipoInput === "correo") {
+      setCorreo(e.target.value);
+    }
+    if (tipoInput === "numero") {
+      setNumero(e.target.value);
+    }
+    if (tipoInput === "motivo") {
+      setMotivo(e.target.value);
+    }
+  };
+
+  const validarFormulario = (e) => {
+    e.preventDefault();
+
+    const esValidoNombre = regEx.nombre.test(nombre);
+    const esValidoCorreo = regEx.correo.test(correo);
+    const esValidoNumero = regEx.numero.test(numero);
+    const esValidoMotivo = motivo !== "";
+
+    if (!esValidoNombre) {
+      setError("Ingrese un nombre válido");
+      return;
+    }
+    if (!esValidoCorreo) {
+      setError("Ingrese un correo válido");
+      return;
+    }
+    if (!esValidoNumero) {
+      setError("Ingrese un número válido");
+      return;
+    }
+    if (!esValidoMotivo) {
+      setError("Seleccione un motivo");
+      return;
+    }
+    if (esValidoNombre && esValidoCorreo && esValidoNumero && esValidoMotivo) {
+      setError(null);
+      alert("Formulario enviado correctamente");
+      e.target.submit();
+    }
+  };
+
   return (
     <>
       <section id="contactanos">
         <h3>Contáctanos</h3>
-        <form action="" className="formulario-contactanos" autoComplete="off">
+        <form
+          action=""
+          className="formulario-contactanos"
+          autoComplete="off"
+          onSubmit={validarFormulario}
+        >
           <div className="formulario">
             <label for="nombre " className={darkMode ? "dark" : ""}>
               Nombre:
@@ -15,6 +78,8 @@ const Contactanos = ({ darkMode }) => {
               type="text"
               name="nombre"
               placeholder="Escriba su nombre"
+              value={nombre}
+              onChange={(e) => asignarValorInput(e, "nombre")}
             />
           </div>
           <div className="formulario">
@@ -26,6 +91,8 @@ const Contactanos = ({ darkMode }) => {
               type="email"
               name="correo"
               placeholder="correo@correo.com"
+              value={correo}
+              onChange={(e) => asignarValorInput(e, "correo")}
             />
           </div>
           <div className="formulario">
@@ -37,20 +104,33 @@ const Contactanos = ({ darkMode }) => {
               type="number"
               name="numero"
               placeholder="Escriba su número"
+              value={numero}
+              onChange={(e) => asignarValorInput(e, "numero")}
             />
           </div>
           <div className="formulario">
             <label for="motivo" className={darkMode ? "dark" : ""}>
               Motivo
             </label>
-            <select className="rectangulo" name="motivo" id="motivo" required>
-              <option value="" disabled hidden>
-                seleccione su motivo
+            <select
+              className="rectangulo"
+              name="motivo"
+              id="motivo"
+              value={motivo}
+              onChange={(e) => asignarValorInput(e, "motivo")}
+            >
+              <option value="" disabled>
+                Seleccione su motivo
               </option>
               <option value="comprar">Comprar prendas</option>
               <option value="alquiler">Alquilar prendas</option>
             </select>
           </div>
+          {error && (
+            <div className="formulario error">
+              <p>{error}</p>
+            </div>
+          )}
 
           <div className="formulario">
             <button className="btn-iguales">
