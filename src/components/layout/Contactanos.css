@@ -28,6 +28,14 @@
         border-radius: 5px;
         font-weight: 500;
       }
+      &.exito {
+        grid-column: span 2;
+        background: green;
+        color: #fff;
+        padding: 16px;
+        border-radius: 5px;
+        font-weight: 500;
+      }
 
       .rectangulo {
         border: none;

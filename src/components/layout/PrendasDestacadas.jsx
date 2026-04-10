@@ -121,7 +121,7 @@ const PrendasDestacadas = ({ darkMode }) => {
                   <a
                     href="#"
                     className={"nombre-prenda " + (darkMode ? "dark" : "")}
-                    onClick={(e) => abrirModal.apply(e, prenda.id)}
+                    onClick={(e) => abrirModal(e, prenda.id)}
                   >
                     {prenda.info.nombre}
                   </a>

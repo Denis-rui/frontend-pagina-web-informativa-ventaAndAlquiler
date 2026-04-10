@@ -6,7 +6,8 @@ const Contactanos = ({ darkMode }) => {
   const [correo, setCorreo] = useState("");
   const [numero, setNumero] = useState("");
   const [motivo, setMotivo] = useState("");
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(null);
+  const [exito, setExito] = useState(null);
 
   const regEx = {
     nombre: /^[a-zA-Z\s]{2,}$/,
@@ -38,24 +39,30 @@ const Contactanos = ({ darkMode }) => {
 
     if (!esValidoNombre) {
       setError("Ingrese un nombre válido");
+      setExito(null);
       return;
     }
     if (!esValidoCorreo) {
       setError("Ingrese un correo válido");
+      setExito(null);
       return;
     }
     if (!esValidoNumero) {
       setError("Ingrese un número válido");
+      setExito(null);
       return;
     }
     if (!esValidoMotivo) {
       setError("Seleccione un motivo");
+      setExito(null);
       return;
     }
     if (esValidoNombre && esValidoCorreo && esValidoNumero && esValidoMotivo) {
       setError(null);
-      alert("Formulario enviado correctamente");
-      e.target.submit();
+      setExito("Formulario enviado correctamente");
+      setTimeout(() => {
+        e.target.submit();
+      }, 2000);
     }
   };
 
@@ -129,6 +136,11 @@ const Contactanos = ({ darkMode }) => {
           {error && (
             <div className="formulario error">
               <p>{error}</p>
+            </div>
+          )}
+          {exito && (
+            <div className="formulario exito">
+              <p>{exito}</p>
             </div>
           )}
 
